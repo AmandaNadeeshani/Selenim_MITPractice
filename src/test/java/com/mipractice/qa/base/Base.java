@@ -18,6 +18,9 @@ import java.util.Properties;
 
 public class Base {
     public static final Logger LOG = LogManager.getLogger(Base.class);
+
+
+    Logger log = LogManager.getLogger(Base.class.getName());
     WebDriver driver;
     public Properties prop;
     public Properties dataprop;
