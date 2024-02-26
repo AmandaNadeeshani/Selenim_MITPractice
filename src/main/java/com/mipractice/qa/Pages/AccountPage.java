@@ -17,7 +17,6 @@ public class AccountPage {
         PageFactory.initElements(driver,this);
     }
 
-    //add a comment
     //actioon methods
     public boolean getDosplaystatusofAccountInformationOtpion(){
         boolean displayStatus = EditYourAccountInformationOption.isDisplayed();
