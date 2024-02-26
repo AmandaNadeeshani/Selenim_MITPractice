@@ -1,6 +1,8 @@
 package com.mipractice.qa.base;
 
 import com.mipractice.qa.utils.utilities;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,7 +17,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class Base {
-
+    public static final Logger LOG = LogManager.getLogger(Base.class);
     WebDriver driver;
     public Properties prop;
     public Properties dataprop;
@@ -34,7 +36,7 @@ public class Base {
 
     }
     public WebDriver initializeBrwoser(String browserName){
-
+        LOG.info("Starting Browser");
         if (browserName.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {

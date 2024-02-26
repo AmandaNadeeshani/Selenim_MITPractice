@@ -13,10 +13,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -25,24 +22,34 @@ import java.util.Date;
 public class Login extends Base {
     public WebDriver driver;
     LoginPage loginpage;
-    @BeforeMethod
+    HomePage homepage;
+
+    @BeforeTest
     public void setup() throws IOException {
 
 
         loadPropertiesFile();
         driver = initializeBrwoser(prop.getProperty("browser")); // Call initializeBrowser method
-        HomePage homepage = new HomePage(driver);
+        homepage = new HomePage(driver);
+        loginpage = new LoginPage(driver);
         loginpage= homepage.navigateToLoginpage();
        // homepage.ClickonMyAccount();
+        //homepage.SelectLoginOption();
+    }
+    @BeforeMethod
+    public void navigate() throws IOException {
+        loginpage= homepage.navigateToLoginpage();
+        // homepage.ClickonMyAccount();
         //homepage.SelectLoginOption();
     }
 
     @Test(priority = 1,dataProvider ="validCredentiaslSupplier")
     public void Verifywithlogincredentials(String email, String password) {
-        loginpage = new LoginPage(driver);
+        LOG.info("starting Verifywithlogincredentials()");
+
         loginpage.enterEmail(email);
         loginpage.passeordEnetr(password);
-        AccountPage AccountPage = loginpage.loginclickbtn();
+        //loginpage.loginclickbtn();
       //  AccountPage accountpage = new AccountPage(driver);
         //Assert.assertTrue(accountpage.getDosplaystatusofAccountInformationOtpion());
        // driver.findElement(By.xpath("//input[@value='Login']")).click();
@@ -83,7 +90,7 @@ public class Login extends Base {
 
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() {
 
         driver.quit();
