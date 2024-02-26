@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+    <listener class-name="com.mipractice.qa.listeners.MyListeners"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="C:/Users/A.Nadeeshani/eclips2023/Selenim_MITPractice">
+        <classes>
+            <class name="com.mipractice.qa.testcase.Login">
+                <methods>
+                    <include name="Verifywithlogincredentials"/>
+                    <include name="VerifywithInvalidlogincredentials"/>
+                </methods>
+            </class>
+            <class name="com.mipractice.qa.testcase.Register">
+                <methods>
+                    <include name="verifyRegisteraccountwithMandatoryFields"/>
+                    <include name="verifyRegisteraccountwithAllFields"/>
+                    <include name="verifyRegisteraccountwithexsistingEmail"/>
+                </methods>
+            </class>
+            <class name="com.mipractice.qa.testcase.Search">
+                <methods>
+                    <include name="verifySearchWithExistingProduct"/>
+                    <include name="verifySearchWithInvalidProduct"/>
+                    <include name="verifyserachwithoutAnyProduct"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

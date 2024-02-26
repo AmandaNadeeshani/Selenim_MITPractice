@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Selenim_MITPractice(failed)">
+    <classes>
+      <class name="com.mipractice.qa.testcase.Login">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="Verifywithlogincredentials"/>
+          <include name="VerifywithInvalidlogincredentials"/>
+        </methods>
+      </class> <!-- com.mipractice.qa.testcase.Login -->
+    </classes>
+  </test> <!-- Selenim_MITPractice(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
