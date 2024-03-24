@@ -12,6 +12,7 @@ public class AccoundSuccessPage {
     @FindBy(xpath ="//h1[contains(text(),'Your Account Has Been Created!')]")
     private WebElement accoutSuccessPageheading;
 
+    //accountt success page
     public AccoundSuccessPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
